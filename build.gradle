@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'war'
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.servlet:jstl'
+    implementation 'javax.servlet:javax.servlet-api'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.hibernate:hibernate-core:5.6.15.Final'
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+}
+
+test {
+    useJUnitPlatform()
+}
